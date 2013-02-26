@@ -1,0 +1,20 @@
+--- mysql-5.0.37/mysql-test/mysql-test-run-shell.sh-testing	2007-03-12 12:41:43.000000000 -0500
++++ mysql-5.0.37/mysql-test/mysql-test-run-shell.sh	2007-03-12 12:42:47.000000000 -0500
+@@ -259,6 +259,17 @@
+ # 5.1 test run, even if different MTR_BUILD_THREAD is used. This means
+ # all port numbers might not be used in this version of the script.
+ #
++
++# hack to allow 32- and 64-bit tests to run concurrently on same build machine
++case `uname -m` in
++  ppc64 | s390x | x86_64)
++    MTR_BUILD_THREAD=7
++    ;;
++  *)
++    MTR_BUILD_THREAD=11
++    ;;
++esac
++
+ if [ -n "$MTR_BUILD_THREAD" ] ; then
+   MASTER_MYPORT=`expr $MTR_BUILD_THREAD '*' 10 + 10000`
+   MYSQL_MANAGER_PORT=`expr $MASTER_MYPORT + 2`

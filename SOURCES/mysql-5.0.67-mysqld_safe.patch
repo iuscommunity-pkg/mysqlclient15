@@ -1,0 +1,11 @@
+--- mysql-5.0.67/support-files/mysql.server.sh.safe	2008-08-04 07:20:16.000000000 -0500
++++ mysql-5.0.67/support-files/mysql.server.sh	2008-08-20 12:48:58.000000000 -0500
+@@ -257,7 +257,7 @@
+   fi
+ fi
+ 
+-parse_server_arguments `$print_defaults $extra_args mysqld server mysql_server mysql.server`
++parse_server_arguments `$print_defaults $extra_args mysqld mysqld_safe server mysql_server mysql.server`
+ 
+ # Look for the pidfile 
+ parse_manager_arguments `$print_defaults $extra_args manager`

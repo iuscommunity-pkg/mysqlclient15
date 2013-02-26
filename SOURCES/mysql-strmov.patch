@@ -1,0 +1,16 @@
+--- mysql-5.0.92/include/m_string.h.orig	2012-09-06 15:36:45.215101304 -0500
++++ mysql-5.0.92/include/m_string.h	2012-09-06 15:36:56.311986058 -0500
+@@ -94,13 +94,6 @@
+ extern void *(*my_str_malloc)(size_t);
+ extern void (*my_str_free)(void *);
+ 
+-#if defined(HAVE_STPCPY) && !defined(HAVE_mit_thread)
+-#define strmov(A,B) stpcpy((A),(B))
+-#ifndef stpcpy
+-extern char *stpcpy(char *, const char *);	/* For AIX with gcc 2.95.3 */
+-#endif
+-#endif
+-
+ /* Declared in int2str() */
+ extern char NEAR _dig_vec_upper[];
+ extern char NEAR _dig_vec_lower[];

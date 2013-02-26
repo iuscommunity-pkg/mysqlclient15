@@ -1,0 +1,49 @@
+--- mysql-5.0.33/mysql-test/mysql-test-run-shell.sh.libtool	2007-01-19 13:56:48.000000000 -0600
++++ mysql-5.0.33/mysql-test/mysql-test-run-shell.sh	2007-01-19 14:02:20.000000000 -0600
+@@ -664,40 +664,14 @@
+    if [ -n "$VALGRIND" ] ; then
+      MYSQLD="$VALGRIND $MYSQLD"
+    fi
+-   if [ -f "$BASEDIR/client/.libs/lt-mysqltest" ] ; then
+-     MYSQL_TEST="$BASEDIR/client/.libs/lt-mysqltest"
+-   elif [ -f "$BASEDIR/client/.libs/mysqltest" ] ; then
+-     MYSQL_TEST="$BASEDIR/client/.libs/mysqltest"
+-   else
+-     MYSQL_TEST="$BASEDIR/client/mysqltest"
+-   fi
++   MYSQL_TEST="$BASEDIR/client/mysqltest"
+    MYSQL_CLIENT_TEST="$BASEDIR/tests/mysql_client_test"
+  fi
+- if [ -f "$BASEDIR/client/.libs/mysqlcheck" ] ; then
+-   MYSQL_CHECK="$BASEDIR/client/.libs/mysqlcheck"
+- else
+-   MYSQL_CHECK="$BASEDIR/client/mysqlcheck"
+- fi
+- if [ -f "$BASEDIR/client/.libs/mysqldump" ] ; then
+-   MYSQL_DUMP="$BASEDIR/client/.libs/mysqldump"
+- else
+-   MYSQL_DUMP="$BASEDIR/client/mysqldump"
+- fi
+- if [ -f "$BASEDIR/client/.libs/mysqlimport" ] ; then
+-   MYSQL_IMPORT="$BASEDIR/client/.libs/mysqlimport"
+- else
+-   MYSQL_IMPORT="$BASEDIR/client/mysqlimport"
+- fi
+- if [ -f "$BASEDIR/client/.libs/mysqlshow" ] ; then
+-   MYSQL_SHOW="$BASEDIR/client/.libs/mysqlshow"
+- else
+-   MYSQL_SHOW="$BASEDIR/client/mysqlshow"
+- fi
+- if [ -f "$BASEDIR/client/.libs/mysqlbinlog" ] ; then
+-   MYSQL_BINLOG="$BASEDIR/client/.libs/mysqlbinlog"
+- else
+-   MYSQL_BINLOG="$BASEDIR/client/mysqlbinlog"
+- fi
++ MYSQL_CHECK="$BASEDIR/client/mysqlcheck"
++ MYSQL_DUMP="$BASEDIR/client/mysqldump"
++ MYSQL_IMPORT="$BASEDIR/client/mysqlimport"
++ MYSQL_SHOW="$BASEDIR/client/mysqlshow"
++ MYSQL_BINLOG="$BASEDIR/client/mysqlbinlog"
+  if [ -n "$STRACE_CLIENT" ]; then
+   MYSQL_TEST="strace -o $MYSQL_TEST_DIR/var/log/mysqltest.strace $MYSQL_TEST"
+  fi

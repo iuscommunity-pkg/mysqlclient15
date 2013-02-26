@@ -1,0 +1,33 @@
+--- mysql-5.0.67/support-files/mysql.server.sh.orig	2008-08-20 12:48:58.000000000 -0500
++++ mysql-5.0.67/support-files/mysql.server.sh	2008-08-21 16:13:08.000000000 -0500
+@@ -60,25 +60,11 @@
+ server_pid_file=
+ use_mysqld_safe=1
+ user=@MYSQLD_USER@
+-if test -z "$basedir"
+-then
+-  basedir=@prefix@
+-  bindir=@bindir@
+-  if test -z "$datadir"
+-  then
+-    datadir=@localstatedir@
+-  fi
+-  sbindir=@sbindir@
+-  libexecdir=@libexecdir@
+-else
+-  bindir="$basedir/bin"
+-  if test -z "$datadir"
+-  then
+-    datadir="$basedir/data"
+-  fi
+-  sbindir="$basedir/sbin"
+-  libexecdir="$basedir/libexec"
+-fi
++basedir=@prefix@
++bindir=@bindir@
++datadir=@localstatedir@
++sbindir=@sbindir@
++libexecdir=@libexecdir@
+ 
+ # datadir_set is used to determine if datadir was set (and so should be
+ # *not* set inside of the --basedir= handler.)
